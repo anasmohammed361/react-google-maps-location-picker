@@ -5,13 +5,12 @@ export default function App() {
   const [place, setPlace] =
     React.useState<google.maps.places.PlaceResult | null>(null);
   return (
-    <div>
-      <GmapsLocationPicker
-        apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
-        place={place}
-        setPlace={setPlace}
-        mapClassName="w-full h-96"
-      />
-    </div>
+    <GmapsLocationPicker
+      apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
+      place={place}
+      setPlace={setPlace}
+      mapClassName="w-screen h-screen"
+      inputClassName="mt-10 w-96 py-2 px-4 rounded"
+    />
   );
 }

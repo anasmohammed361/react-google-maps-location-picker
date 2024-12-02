@@ -1,50 +1,49 @@
-# React + TypeScript + Vite
+# Riyadh Google Map Location Picker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a basic example demonstrating the use of the Google Maps API to pick a location with automatic search completions. This can be used as a base template for those looking to collaborate and develop further.
 
-Currently, two official plugins are available:
+## Features
+- Location picking
+- Automatic search completions
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Usage
+This project is intended for people who need a drop-in solution for Google Maps autocomplete.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Install dependencies
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+pnpm add @vis.gl/react-google-maps
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Create Google Maps Api key - [refer docs](https://developers.google.com/maps/documentation/javascript/get-api-key#console)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Copy paste the `src/gmaps-location-picker` directory into your codebase.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+- You can start using the Location picker in your codebase
+
+```tsx
+import React from "react";
+import GmapsLocationPicker from "./gmaps-location-picker";
+
+export default function App() {
+  const [place, setPlace] =
+    React.useState<google.maps.places.PlaceResult | null>(null);
+  return (
+      <GmapsLocationPicker
+        apiKey={"replace_with_your_api_key"}
+        place={place}
+        setPlace={setPlace}
+        mapClassName="w-screen h-screen"
+        inputClassName="mt-10 w-96 py-2 px-4 rounded"
+      />
+  );
+}
 ```
+
+# Output Screenshots
+
+![output-1](./public/img-1.png)
+![output-2](./public/img-2.png)
+![output-3](./public/img-3.png)
