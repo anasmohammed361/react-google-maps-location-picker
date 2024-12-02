@@ -1,4 +1,4 @@
-# Google Map Location Picker
+# React Google Map Location Picker
 
 This is a basic example demonstrating the use of the Google Maps API to pick a location with automatic search completions. This can be used as a base template for those looking to collaborate and develop further.
 
